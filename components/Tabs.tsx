@@ -26,7 +26,7 @@ const Tabs = ({ categories }: IPropType) => {
             ? 'border-primary text-primary'
             : 'border-white text-gray-400'}`}>
 
-          <Link href="#">Recent</Link>
+          <Link href="/">Recent</Link>
         </li>
         {categories.map((category) => {
           return <li key={category.id} className={"mr-6 pb-6 border-b-4 rounded-sm " +
@@ -38,7 +38,7 @@ const Tabs = ({ categories }: IPropType) => {
         })}
       </ul>
 
-      <div className="flex items-center">
+      <div className="flex items-center mb-6">
                 <svg
                     className="h-4 fill-gray-500"
                     xmlns="http://www.w3.org/2000/svg"
