@@ -6,8 +6,7 @@ import qs from 'qs';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { formatDate, serializeMarkdown } from '../../utils';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { formatDate } from '../../utils';
 
 interface IPropType {
     article: IArticle;
@@ -55,9 +54,6 @@ const slug = ({ article, notFound = false }: IPropType) => {
                             alt={article.attributes.Title}
                         />
                         {article.attributes.Body}
-                        {/* <MDXRemote
-                            {...(article.attributes.Body as MDXRemoteSerializeResult)}
-                        /> */}
                     </div>
                 </div>
             </div>

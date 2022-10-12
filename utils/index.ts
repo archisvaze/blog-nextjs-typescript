@@ -27,15 +27,3 @@ export const debounce = (fn: () => void, timeout = 300) => {
 
     return debounced;
 }
-
-
-export const serializeMarkdown = async (item: IArticle) => {
-    const body = await serialize(item.attributes.body as string);
-    return {
-        ...item,
-        attributes: {
-            ...item.attributes,
-            body,
-        },
-    };
-};
