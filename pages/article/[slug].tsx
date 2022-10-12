@@ -54,10 +54,11 @@ const slug = ({ article, notFound = false }: IPropType) => {
                             src={`http://localhost:1337${article.attributes.Image?.data?.attributes.url}`}
                             alt={article.attributes.Title}
                         />
-                        <MDXRemote
+                        {article.attributes.Body}
+                        {/* <MDXRemote
                             {...(article.attributes
-                                .body as MDXRemoteSerializeResult)}
-                        />
+                                .Body as MDXRemoteSerializeResult)}
+                        /> */}
                     </div>
                 </div>
             </div>
