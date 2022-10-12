@@ -8,7 +8,7 @@ const Footer = () => {
                 <a
                     href="/"
                     className="flex items-center justify-center md:justify-start text-gray-900">
-                    <Image src={'/logo.png'} height={35} width={40} />
+                    <Image src={'/logo.png'} height={30} width={30} />
                     <span className="ml-3 text-md">Archis's Blog</span>
                 </a>
                 <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
