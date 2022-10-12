@@ -72,3 +72,12 @@ export interface IArticle {
     id: number;
     attributes: IArticleAttribute;
 }
+
+
+export interface IQueryOptions {
+    filters: any;
+    sort: any;
+    populate: any;
+    pagination: any;
+
+}

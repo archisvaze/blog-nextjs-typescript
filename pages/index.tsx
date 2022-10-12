@@ -1,11 +1,12 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { fetchArticles, fetchCategories } from '../http';
-import { IArticle, ICategory, ICollectionResponse } from '../types';
+import { IArticle, ICategory, ICollectionResponse, IQueryOptions } from '../types';
 import { AxiosResponse } from 'axios';
 import Tabs from '../components/Tabs';
 import ArticleList from '../components/ArticleList';
 import qs from "qs";
+import { useRouter } from 'next/router';
 
 interface IPropTypes {
   categories: {
@@ -17,12 +18,13 @@ interface IPropTypes {
 }
 
 const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
+  const router = useRouter();
 
   console.log('categories', categories)
   console.log('articles', articles)
 
   const handleOnSearch = (query: String) => {
-    console.log("handling search")
+    router.push(`/?search=${query}`)
   }
 
   return (
@@ -38,13 +40,28 @@ const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
   )
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+
+
+
+
+//SSR
+
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   //articles
-  const options = {
+  const options: Partial<IQueryOptions> = {
 
     populate: ['author.avatar'],
     sort: ['id:desc'],
+  }
+
+  if (query.search) {
+    options.filters = {
+      Title: {
+        $containsi: query.search,
+      }
+    }
   }
 
   const queryString = qs.stringify(options)
