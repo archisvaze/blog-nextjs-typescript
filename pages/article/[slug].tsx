@@ -29,7 +29,7 @@ const slug = ({ article, notFound = false }: IPropType) => {
                     </h1>
                     <div className="flex items-center my-4">
                         <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
-                            <Image
+                            <Image alt=""
                                 src={`http://localhost:1337${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
                                 height={40}
                                 width={40}
@@ -48,10 +48,10 @@ const slug = ({ article, notFound = false }: IPropType) => {
                         </span>
                     </div>
                     <div className="text-lg text-gray-600 leading-8 mb-20">
-                        <img
+                        <Image alt=""
                             className="w-full my-12 mb-6"
                             src={`http://localhost:1337${article.attributes.Image?.data?.attributes.url}`}
-                            alt={article.attributes.Title}
+                            
                         />
                         {article.attributes.Body}
                     </div>

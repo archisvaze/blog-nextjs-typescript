@@ -18,7 +18,7 @@ const Blogcard = ({ article }: IPropType) => {
             </Link>
             <div className="flex items-center my-4">
                 <div className="rounded-full overflow-hidden flex items-center justify-center mr-2 rounded-full">
-                    <Image
+                    <Image alt=""
                         src={`http://localhost:1337${article.attributes.author.data.attributes.avatar.data?.attributes.formats.thumbnail.url}`}
                         height={40}
                         width={40}
