@@ -14,6 +14,7 @@ interface IPropType {
 }
 
 const slug = ({ article, notFound = false }: IPropType) => {
+    // console.log(article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url)
     return (
         <>
             <Head>
@@ -23,7 +24,7 @@ const slug = ({ article, notFound = false }: IPropType) => {
             </Head>
 
             <div className='my-12 grid lg:grid-cols-3 gap-12'>
-            <div className="col-span-2">
+                <div className="col-span-2">
                     <h1 className="text-3xl font-bold py-2">
                         {article.attributes.Title}
                     </h1>
@@ -48,11 +49,13 @@ const slug = ({ article, notFound = false }: IPropType) => {
                         </span>
                     </div>
                     <div className="text-lg text-gray-600 leading-8 mb-20">
-                        <Image alt=""
+                        {article.attributes.Image?.data ? <Image alt=""
                             className="w-full my-12 mb-6"
                             src={`http://localhost:1337${article.attributes.Image?.data?.attributes.url}`}
-                            
-                        />
+                            width="200px"
+                            height="200px"
+                        /> : <></>}
+
                         {article.attributes.Body}
                     </div>
                 </div>
