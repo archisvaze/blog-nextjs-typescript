@@ -8,8 +8,10 @@ const Footer = () => {
                 <Link
                     href="/"
                     className="flex items-center justify-center md:justify-start text-gray-900">
-                    <Image alt="" src={'/logo.png'} height={30} width={30} />
-                    <span className="ml-3 text-md">Archis's Blog</span>
+                    <a>
+                        <Image alt="" src={'/logo.png'} height={30} width={30} />
+                        <span className="ml-3 text-md">Archis's Blog</span>
+                    </a>
                 </Link>
                 <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
                     © 2022 Archis's Blog
