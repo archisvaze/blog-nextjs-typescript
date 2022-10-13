@@ -9,7 +9,7 @@ const Navbar = () => {
                 <div className="flex items-center cursor-pointer">
                     <Image alt="" src="/logo.png" height={30} width={30} />
                     <span className="font-bold ml-2 text-primary">
-                        Archis's Blog
+                        Archis&#39;s Blog
                     </span>
                 </div>
             </Link>
