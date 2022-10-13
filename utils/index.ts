@@ -1,7 +1,4 @@
 
-import { serialize } from 'next-mdx-remote/serialize';
-import { IArticle } from '../types';
-
 export const formatDate = (dateString: string): string => {
     const date = new Date(dateString).toLocaleDateString('en-US', {
         weekday: 'long',
@@ -14,7 +11,7 @@ export const formatDate = (dateString: string): string => {
 
 
 
-export const debounce = (fn: () => void, timeout = 300) => {
+export const debounce = (fn: (query: string) => void, timeout = 300) => {
     let timer: NodeJS.Timeout;
 
     const debounced = (...args: any) => {
