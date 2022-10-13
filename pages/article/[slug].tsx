@@ -31,7 +31,7 @@ const slug = ({ article, notFound = false }: IPropType) => {
                     <div className="flex items-center my-4">
                         <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                             <Image alt=""
-                                src={`http://localhost:1337${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
+                                src={`https://strapi-sls4.onrender.com${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
                                 height={40}
                                 width={40}
                             />
@@ -51,7 +51,7 @@ const slug = ({ article, notFound = false }: IPropType) => {
                     <div className="text-lg text-gray-600 leading-8 mb-20">
                         {article.attributes.Image?.data ? <Image alt=""
                             className="w-full my-12 mb-6"
-                            src={`http://localhost:1337${article.attributes.Image?.data?.attributes.url}`}
+                            src={`https://strapi-sls4.onrender.com${article.attributes.Image?.data?.attributes.url}`}
                             width="200px"
                             height="200px"
                         /> : <></>}
