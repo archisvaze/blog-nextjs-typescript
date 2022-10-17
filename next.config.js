@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains : ['https://strapi-sls4.onrender.com'],
+    domains: ['onrender.com', 'strapi-sls4.onrender.com'],
   }
 }
 

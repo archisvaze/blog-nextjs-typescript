@@ -2,24 +2,21 @@ import React from 'react'
 import Head from 'next/head'
 import Tabs from '../../components/Tabs'
 import { GetServerSideProps } from 'next'
-import { IArticle, ICategory, ICollectionResponse, IPagination } from '../../types'
+import { IArticle, ICategory, ICollectionResponse } from '../../types'
 import { fetchArticles, fetchCategories } from '../../http'
 import { AxiosResponse } from 'axios';
 import qs from 'qs';
 import ArticleList from '../../components/ArticleList'
 import { useRouter } from 'next/router'
-import { debounce  } from '../../utils';
+import { debounce } from '../../utils';
 interface IPropType {
     categories: {
-        items: ICategory[];
-        pagination: IPagination;
+        items: ICategory[]
     },
     articles: {
-        items: IArticle[],
-        pagination: IPagination;
+        items: IArticle[]
     },
-    slug: string,
-
+    slug: string
 }
 
 const Category = ({ categories, articles, slug }: IPropType) => {
@@ -48,17 +45,7 @@ const Category = ({ categories, articles, slug }: IPropType) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
-    const options = {
-        populate: ['author.avatar'],
-        sort: ["id:desc"],
-        filters: {
-            category: {
-                slug: query.category
-            }
-        }
-    };
-
-    const queryString = qs.stringify(options)
+    const queryString = qs.stringify(query.category)
 
     const { data: articles }: AxiosResponse<ICollectionResponse<IArticle[]>> =
         await fetchArticles(queryString);
@@ -72,14 +59,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     return {
         props: {
             categories: {
-                items: categories.data,
-                pagination: categories.meta.pagination,
+                items: categories.data
             },
             articles: {
-                items: articles.data,
-                pagination: articles.meta.pagination
+                items: articles.data
             },
-            slug: query.category,
+            slug: query.category
         }
     }
 }

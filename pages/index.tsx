@@ -19,6 +19,8 @@ interface IPropTypes {
 }
 
 const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
+  console.log(process.env)
+
   const router = useRouter();
 
   console.log('categories', categories)
@@ -45,16 +47,15 @@ const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
 
 
 
-//SSR
+// SSR
 
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   //articles
   const options: Partial<IQueryOptions> = {
-
     populate: ['author.avatar'],
-    sort: ['id:desc'],
+    sort: ['_id:desc'],
   }
 
   if (query.search) {
@@ -85,8 +86,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         items: categories.data
       },
       articles: {
-        items: articles.data,
-        pagination: articles.meta.pagination
+        items: articles.data
       }
     }
   }
